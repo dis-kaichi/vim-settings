@@ -1,0 +1,55 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" Python実行
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+map <silent> [Exec]p :!python %<CR>
+" PEP8コーディング規約チェック
+map <silent> [Exec]8 :!pep8 %<CR>
+" 文法チェック
+map <silent> [Exec]fl :!pyflakes %<CR>
+" Django用文法チェック
+map <silent> [Exec]f8 :!flake8 %<CR>
+" AutoPEP8
+map <silent> [Exec]a8 :Autopep8 <CR>
+" nose
+map <silent> [Exec]n :!nosetests -v<CR>
+
+" Java
+map <silent> [Exec]jc :!javac %<CR>
+" 拡張子抜き(%:r)
+map <silent> [Exec]jj :!java %:r<CR>
+
+" LISP
+map <silent> [Exec]l :!clisp %<CR>
+
+" CPP
+map <silent> [Exec]cc :!g++ -o %:r %<CR>
+map <silent> [Exec]cp :!./%:r<CR>
+
+" W3M (+ Google)
+map [Exec]w :W3m google 
+map [Exec]W :W3mTab google 
+
+" インデント
+autocmd FileType python set autoindent
+autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+" #のインデントを整える
+autocmd FileType python :inoremap # X#
+
+" C-Lang
+autocmd FileType c,cpp set autoindent smartindent tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" テンプレート
+autocmd BufNewFile *.py 0r ~/my/templates/pyskelton.py
+
+" For Markdown
+let g:vim_markdown_liquid=1
+let g:vim_markdown_frontmattter=1
+let g:vim_markdown_math=1
+au BufRead,BufNewFile *.{txt,text} set filetype=markdown
