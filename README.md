@@ -1,13 +1,17 @@
-# vimの設定
-各ファイルについて  
-
-- vimrc_common  
-    共通設定
-- vimrc_XXXXX
-    それぞれの言語に特化した設定ファイル
-
 # フォルダ構成について
-    *そのうち直す必要あり*
-- vimrc_XXX系は~/my/config/以下に置く
-- skelton系は~/my/templastes/以下に置く
+~/my直下にconfig, templatesを置く必要あり
 
+# 各ファイルの説明
+## config
+- vimrc_common  
+  共通設定ファイル
+- vimrc_XXXXX  
+  それぞれの言語に特化した設定ファイル
+
+## templates
+- hyskelton.hy  
+    hylang用テンプレート
+- pynoseskelton.py  
+    pynose用テンプレート(テスト用テンプレート)
+- pyskelton.py  
+    python用テンプレート
