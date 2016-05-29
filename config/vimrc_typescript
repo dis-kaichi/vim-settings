@@ -1,0 +1,27 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" 実行
+" nnoremap [Exec] <Nop>
+
+let g:typescript_compiler_options = '-sourcemap'
+
+" Wisp (Javascript)
+"map <silent> [Exec]w :r ! cat % | wisp converted_%:r.js<CR>
+"map <silent> [Exec]w :!cat % || !wisp > converted_%:r.js<CR>
+"map <silent> [Exec]w :!cat % || !wisp > converted_%:r.js<CR>
+"function! EXEC_WISP()
+"  let s:after = converted_%:r.js
+"  let s:before = %
+"  let s:befores = !cat %
+"  ":!cat s:before | !wisp > s:after<CR>
+"  ":!wisp s:befores > s:after<CR>
+"endfunction
+"map <silent> [Exec]w EXEC_WISP()<CR>
+" map <silent> [Exec]w :!compile-wisp.sh % %:r.js<CR>
+
+" au BufRead,BufNewFile *.wisp set filetype=clojure
+" au BufRead,BufNewFile *.ts set filetype=cs

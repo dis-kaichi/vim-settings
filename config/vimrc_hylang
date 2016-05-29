@@ -1,0 +1,26 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" ----------------------------------------
+" 実行関数
+" ----------------------------------------
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+map <silent> [Exec]p :!hy % <CR>
+
+" rainbow_parentheses.vimの括弧の色付けを有効化
+" let g:rbpt_loadcmd_toggle = 0
+" let g:rbpt_max = 16
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" filetype
+au BufRead,BufNewFile *.hy set filetype=clojure
+
+" テンプレート
+autocmd BufNewFile *.hy 0r ~/my/templates/hyskelton.hy

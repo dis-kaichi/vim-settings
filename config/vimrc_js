@@ -1,0 +1,29 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+setl omnifunc=javascriptcomplete#CompleteJS
+let g:jscomplete_use = ["dom", "moz"]
+if !exists('g:neocomplcache_omni_functions')
+  let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions.javascript = ['nodejscomplete#CompleteJS', 'javascriptcomplete#CompleteJS']
+let g:node_usejscomplete = 1
+
+" Simple JavaScript Indenter
+let g:SimpleJsIndenter_BriefMode = 1
+let g:SimpleJSIndenter_CaseIndentLevel = -1
+
+setl shiftwidth=2
+setl softtabstop=2
+setl tabstop=2
+setl expandtab
+
+
+" Javascript系
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+map <silent> [Exec]js :!jshint %<CR>
+map <silent> [Exec]p :!nodejs %<CR>
