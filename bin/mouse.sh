@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Bluetooth Mouse
-address="20:15:10:15:10:C2"
+address=""
 while (sleep 1)
 do
   connected=`sudo hidd --show` > /dev/null
