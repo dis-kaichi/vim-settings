@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -e "build" ]; then
+  mkdir "build"
+else
+  echo "'build' is already exists."
+fi
+
+if [ ! -L "frege.jar" ]; then
+  ln -s ~/my/modules/jar/frege3.23.370-g898bc8c.jar frege.jar
+else
+  echo "'frege.jar' is already exists"
+fi
+

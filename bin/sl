@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+ARRAY = [
+"""
+(*^○ ^*)
+"""
+]
+
+import random
+
+index = random.randint(0, len(ARRAY)-1)
+
+print ARRAY[index]

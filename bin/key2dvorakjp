@@ -1,0 +1,4 @@
+#!/bin/bash
+
+setxkbmap jp dvorak;
+xmodmap ~/.Xmodmaprc;

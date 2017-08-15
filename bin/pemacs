@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+# coding: utf-8
+import argparse
+import os
+
+OPTIONS = [ # 設定ファイルを切り替える対象
+  dict(type='debug', action='store_true', help='Debug Mode for a config file.', specify=True),
+  dict(type='clojure', action='store_true', help='Cojure Mode', specify=False),
+  dict(type='haskell', action='store_true', help='Haskell Mode', specify=False),
+  dict(type='install', action='store_true', help='AutoInstall Mode', specify=False),
+  dict(type='clisp', action='store_true', help='Common Lisp Mode', specify=False),
+  dict(type='clang', action='store_true', help='C-Language Mode', specify=False),
+  dict(type='cpp', action='store_true', help='C++ Mode', specify=False),
+  dict(type='hatena', action='store_true', help='Hatena Blog Mode', specify=False),
+  dict(type='js', action='store_true', help='Javascript Mode', specify=False),
+]
+
+def createParser(): # Parserの作成
+  parser = argparse.ArgumentParser()
+  parser.add_argument('-c', '--config', help='Config file. (.emacs)')
+  parser.add_argument('files', nargs='*', default=[], help='Files to open.')
+  for dic in OPTIONS:
+    parser.add_argument('--%s' % (dic.get('type')), action=dic.get('action'), help=dic.get('help'))
+  return parser
+
+if __name__ == '__main__':
+  parser = createParser()
+  args = parser.parse_args()
+
+  debug = '--debug-init' if args.debug else ''
+  # Defaultでcommon設定ファイルを読み込む
+  if args.config is not None:
+    config = '-l %s' % (args.config)
+  else:
+    config = '-l %s' % ("~/my/config/emacsrc_common.el")
+  emacs = "emacs23"  # Default emacs
+  # 設定ファイル読み込み
+  for dic in OPTIONS:
+    conf_type = dic.get('type')
+    if not dic.get('specify') and eval("args.%s" % (conf_type)):
+      config = '-l ~/my/config/emacsrc_%s.el' % (conf_type)
+    if conf_type == "js": # Javascriptのみemacs24
+      emacs = "emacs24"
+
+  # ファイル群
+  files = args.files
+  if len(files) == 0:
+    files = ''
+  else:
+    files = " ".join(files)
+  os.system('%s -nw %s %s %s' % (emacs, config, debug, files))

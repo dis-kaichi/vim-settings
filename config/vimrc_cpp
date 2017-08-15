@@ -1,0 +1,22 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" 実行コマンド
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+
+map <silent> [Exec]c :!g++ -o %:r %<CR>
+map <silent> [Exec]p :!./%:r<CR>
+
+
+"タブ文字の長さ
+setlocal tabstop=2
+setlocal shiftwidth=2
+
+" 括弧を構成する設定に <> を追加する
+" template<> を多用するのであれば
+setlocal matchpairs+=<:>
+

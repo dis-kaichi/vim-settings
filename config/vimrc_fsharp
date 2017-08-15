@@ -1,0 +1,85 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" 実行
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+map <silent> [Exec]p :!fsharpi --exec %<CR>
+
+"" Java
+"map <silent> [Exec]jc :!javac %<CR>
+"" 拡張子抜き(%:r)
+"map <silent> [Exec]jj :!java %:r<CR>
+"
+"" LISP
+"map <silent> [Exec]l :!clisp %<CR>
+"
+"" Hy(Language)
+"map <silent> [Exec]h :!hy %<CR>
+"
+"" Clojure
+"map <silent> [Exec]cln :!lein run <CR>
+
+" Wisp (Javascript)
+"map <silent> [Exec]w :r ! cat % | wisp converted_%:r.js<CR>
+"map <silent> [Exec]w :!cat % || !wisp > converted_%:r.js<CR>
+"map <silent> [Exec]w :!cat % || !wisp > converted_%:r.js<CR>
+"function! EXEC_WISP()
+"  let s:after = converted_%:r.js
+"  let s:before = %
+"  let s:befores = !cat %
+"  ":!cat s:before | !wisp > s:after<CR>
+"  ":!wisp s:befores > s:after<CR>
+"endfunction
+"map <silent> [Exec]w EXEC_WISP()<CR>
+"map <silent> [Exec]w :!compile-wisp.sh % %:r.js<CR>
+"" JavaScript系
+"map <silent> [Exec]js :!jshint %<CR>
+"" TypeScript
+"map <silent> [Exec]ts :!tsc %<CR>
+"
+"" CPP
+"map <silent> [Exec]cc :!g++ -o %:r %<CR>
+"map <silent> [Exec]cp :!./%:r<CR>
+
+" W3M (+ Google)
+"map [Exec]w :W3m google 
+"map [Exec]W :W3mTab google 
+
+" インデント
+autocmd FileType python set autoindent
+autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+" #のインデントを整える
+autocmd FileType python :inoremap # X#
+
+" C-Lang
+"autocmd FileType c,cpp set autoindent smartindent tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" ----------------------------------------
+"  テンプレート
+" ----------------------------------------
+"  不定先読みによる分岐処理
+" noseテスト用
+autocmd BufNewFile test_*.py 0r ~/my/templates/pynoseskelton.py
+
+" 通常pythonモジュール
+autocmd BufNewFile \(test_\)\@!*.py 0r ~/my/templates/pyskelton.py
+
+"" For Markdown
+"let g:vim_markdown_liquid=1
+"let g:vim_markdown_frontmattter=1
+"let g:vim_markdown_math=1
+
+" ----------------------------------------
+" filetypeの設定
+" ----------------------------------------
+"au BufRead,BufNewFile *.{txt,text} set filetype=markdown
+"au BufRead,BufNewFile *.hy set filetype=clojure
+"" au BufRead,BufNewFile *.hy set filetype=lisp
+"au BufRead,BufNewFile *.wisp set filetype=clojure
+"au BufRead,BufNewFile *.clj set filetype=clojure
+
