@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 # coding: utf-8
 import argparse
 import os
@@ -47,6 +47,10 @@ def _generate_config_fname(_type):
         return "vimrc_lisp"
     elif _type == "hatena":
         return "vimrc_hatenablog"
+    elif _type == "v":
+        return "vimrc_coq"
+    elif _type in ["md", "markdown"]:
+        return "vimrc_markdown"
     # 不明な場合はpythonのやつ
     print "(WARN) Unknown file extension"
     print "(MSG) Use python config."

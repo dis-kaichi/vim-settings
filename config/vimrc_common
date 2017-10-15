@@ -14,6 +14,7 @@ runtime! debian.vim
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER setting 'compatible'.
 "set compatible
+set nocompatible
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -239,6 +240,7 @@ nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 nmap <silent>sdb <Plug>(operator-surround-delete)<Plug>(textobj-between-a)
 nmap <silent>srb <Plug>(operator-surround-replace)<Plug>(textobj-between-a)
 
+
 " ----------------------------------------
 "  その他
 " ----------------------------------------
@@ -253,6 +255,12 @@ set background=dark
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]now :<ESC>i<C-r>=strftime("%Y/%m/%d(%a) %H:%M:%S")<CR><ESC>
+
+" 自動畳み込みOFF
+set nofoldenable
+
+" Copy to Clipboard
+"vnoremap <silent>y :w !xsel -bi<CR><CR>
 
 " ----------------------------------------
 " START Neobundle Settings.
@@ -272,6 +280,8 @@ NeoBundle 'Shougo/vimproc.vim'
 """ Python
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'tell-k/vim-autopep8'
+""" Ruby
+NeoBundle 'vim-ruby/vim-ruby'
 """ Haskell
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/ghcmod-vim'
@@ -339,6 +349,12 @@ NeoBundle 'melrief/vim-frege-syntax'
 
 "" C#
 NeoBundle 'OrangeT/vim-csharp'
+
+" Evernote
+NeoBundle 'kakkyz81/evervim'
+
+" Coq
+NeoBundle 'eagletmt/coqtop-vim'
 
 call neobundle#end()
 
