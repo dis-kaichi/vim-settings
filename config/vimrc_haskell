@@ -8,5 +8,18 @@ endif
 "" main を実行する
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
-map <silent> [Exec]h :!ghc -e main %<CR>
+" 通常のghc
+map <silent> [Exec]e :!ghc -e main %<CR>
+" stackを利用する設定(2016/12/03)
+map <silent> [Exec]s :!stack setup <CR>
+map <silent> [Exec]b :!stack build <CR>
+""" プロジェクトのルートからファイルを編集している想定
+""" ルートにあるcabalファイルがプロジェクト名になっているので、それを探しに行くことで対応
+map <silent> [Exec]p :execute('!stack exec ' . fnamemodify(expand("**/*.cabal"), ":r")) . '-exe' <CR>
 
+
+" ----------------------------------------
+"  設定関連
+" ----------------------------------------
+"  vim2hsのラムダを止める
+let g:haskell_conceal = 0
