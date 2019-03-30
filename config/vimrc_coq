@@ -4,6 +4,10 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'eagletmt/coqtop-vim'
+call neobundle#end()
+
 " ----------------------------------------
 " 実行関数
 " ----------------------------------------

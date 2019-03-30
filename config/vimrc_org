@@ -1,0 +1,58 @@
+""" 共通設定読み込み
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'jceb/vim-orgmode'
+"NeoBundle 'akstrfn/vim-orgmode'
+NeoBundle 'tpope/vim-speeddating'
+call neobundle#end()
+
+let g:org_agenda_files=['~/workspace/org/todo.org', '~/workspace/org/list.org', '~/workspace/org/work.org']
+
+" ----------------------------------------
+" 実行関数
+" ----------------------------------------
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+" Toggle
+nmap cc :OrgCheckBoxToggle<CR>
+nmap cn :OrgCheckBoxNewBelow<CR>
+nmap cN :OrgCheckBoxNewAbove<CR>
+" List
+nmap cl :OrgPlainListItemNewBelow<CR>
+nmap cL :OrgPlainListItemNewAbove<CR>
+" Export
+nmap ep :OrgExportToPDF<CR>
+nmap eh :OrgExportToHTML<CR>
+nmap el :OrgExportLaTeX<CR>
+nmap em :OrgExportMarkdown<CR>
+" Tag
+nmap st :OrgSetTags<CR>
+nmap sf :OrgFindTags<CR>
+nmap sr :OrgTagsRealign<CR>
+"map <silent> [Exec]c :OrgCheckBoxToggle
+"map <silent> [Exec]
+"map <silent> [Exec]p :!lein run <CR>
+"map <silent> [Exec]r :CoqStart<CR>
+"map <silent> [Exec]g :CoqGoto<CR>
+"map <silent> [Exec]c :CoqClear<CR>
+"map <silent> [Exec]v :CoqPrint<CR>
+"map <silent> [Exec]q :CoqQuit<CR>
+"map <silent> [Exec]s :CoqSearchAbout<CR>
+"map <silent> [Exec]p :!coqc %<CR>
+
+" 拡張子抜き(%:r)
+"map <silent> [Exec]jj :!java %:r<CR>
+
+" rainbow_parentheses.vimの括弧の色付けを有効化
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
+"set highlight SentToCoq ctermbg=17 quibg=#000080
+
+" テンプレート
+"autocmd BufNewFile *.py 0r ~/my/templates/pyskelton.py

@@ -4,6 +4,17 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+""" typescript
+NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'jason0x43/vim-js-indent'
+""" Matchit
+" typescript関連のライブラリで必要なようである
+NeoBundle 'tmhedberg/matchit'
+
+call neobundle#end()
+
 " 実行
 " nnoremap [Exec] <Nop>
 

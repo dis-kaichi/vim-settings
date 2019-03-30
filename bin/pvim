@@ -25,6 +25,9 @@ def _create_options():
         dict(
             short='hatena', type='hatenablog', action='store_true',
             help="HatenaBlog Mode", specify=False),
+	dict(
+            short='tidal', type='tidal', action='store_true',
+            help="Tidal Mode", specify=False),
     ]
 
 def _generate_config_fname(_type):
@@ -51,6 +54,14 @@ def _generate_config_fname(_type):
         return "vimrc_coq"
     elif _type in ["md", "markdown"]:
         return "vimrc_markdown"
+    elif _type in ["tidal"]:
+        return "vimrc_tidal"
+    elif _type in ["c", "cpp", "h", "hpp"]:
+        return "vimrc_cpp"
+    elif _type in ["fs", "fsx"]:
+        return "vimrc_fsharp"
+    elif _type == "org":
+        return "vimrc_org"
     # 不明な場合はpythonのやつ
     print "(WARN) Unknown file extension"
     print "(MSG) Use python config."
@@ -86,6 +97,8 @@ if __name__ == '__main__':
             _type = _extract_extension(args.files[0])
         elif args.hatenablog:
             _type = "hatena"
+        elif args.tidal:
+            _type = "tidal"
         else:
             # ファイルがない場合はDefault設定
             _type = None

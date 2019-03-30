@@ -8,6 +8,10 @@ endif
 "  一部pythonと関係ない設定があるので、
 "  そのうち分離する
 " ----------------------------------------
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'tell-k/vim-autopep8'
+call neobundle#end()
 
 " Python実行
 nnoremap [Exec] <Nop>

@@ -4,22 +4,26 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'munshkr/vim-tidal'
+call neobundle#end()
+
 " ----------------------------------------
 " 実行関数
 " ----------------------------------------
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
-map <silent> [Exec]p :!ros -l %<CR>
-
+" map <silent> [Exec]p :!java -cp /opt/clojure-1.6.0/clojure-1.6.0.jar:$CLASSPATH %<CR>
+"map <silent> [Exec]p :!lein run <CR>
 
 " 拡張子抜き(%:r)
 "map <silent> [Exec]jj :!java %:r<CR>
 
 " rainbow_parentheses.vimの括弧の色付けを有効化
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 " テンプレート
 "autocmd BufNewFile *.py 0r ~/my/templates/pyskelton.py

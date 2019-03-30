@@ -11,4 +11,4 @@ import random
 
 index = random.randint(0, len(ARRAY)-1)
 
-print ARRAY[index]
+print (ARRAY[index])

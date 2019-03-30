@@ -4,13 +4,21 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'kovisoft/slimv'
+call neobundle#end()
+
 " ----------------------------------------
 " 実行関数
 " ----------------------------------------
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
-map <silent> [Exec]p :!ros -l %<CR>
+" map <silent> [Exec]p :!java -cp /opt/clojure-1.6.0/clojure-1.6.0.jar:$CLASSPATH %<CR>
+map <silent> [Exec]p :!lein run <CR>
 
+" W3M (+ Google)
+" map [Exec]w :W3m google 
+" map [Exec]W :W3mTab google 
 
 " 拡張子抜き(%:r)
 "map <silent> [Exec]jj :!java %:r<CR>

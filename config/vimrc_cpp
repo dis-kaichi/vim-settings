@@ -4,12 +4,28 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'rhysd/vim-clang-format'
+call neobundle#end()
+
 " 実行コマンド
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 
 map <silent> [Exec]c :!g++ -o %:r %<CR>
 map <silent> [Exec]p :!./%:r<CR>
+map <silent> = <Plug>(operator-clang-format)
+
+map <silent> [Exec]qq :!qmake<CR>
+map <silent> [Exec]qm :!make<CR>
+map <silent> [Exec]qp :!./%:p:h:t<CR>
+
+"let output_fname = expand("%:r") . ".exe"
+let s:output_fname = expand("%:r") . ".exe"
+"map <silent> [Exec]mc :!i686-w64-mingw32-g++ % -o %:r . ".exe"<CR>
+map <silent> [Exec]mc :!i686-w64-mingw32-g++ % -o "%:r"".exe"<CR>
+map <silent> [Exec]mm :!make<CR>
+map <silent> [Exec]mp :!wine "%:r"".exe"<CR>
 
 
 "タブ文字の長さ
@@ -20,3 +36,4 @@ setlocal shiftwidth=2
 " template<> を多用するのであれば
 setlocal matchpairs+=<:>
 
+setlocal formatoptions-=ro

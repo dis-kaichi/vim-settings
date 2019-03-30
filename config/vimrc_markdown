@@ -6,6 +6,18 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+""" Markdown
+" http://rcmdnk.github.io/blog/2014/10/30/computer-vim-markdown/
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
+NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'iwataka/vim-markdown-ex'
+"NeoBundle 'kannokanno/previm'
+NeoBundle 'kazuph/previm', 'feature/add-plantuml-plugin'
+NeoBundle 'tyru/open-browser.vim'
+call neobundle#end()
+
 " ----------------------------------------
 "  設定関連
 " ----------------------------------------
@@ -18,6 +30,8 @@ let g:haskell_conceal = 0
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]p :PrevimOpen <CR>
+map cc :CheckboxToggle<CR>
+vnoremap <C-f> :Alignta <Bar><CR>
 
 
 " filetype

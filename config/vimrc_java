@@ -6,6 +6,10 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+"" ここにプラグイン追加
+call neobundle#end()
+
 " ----------------------------------------
 " 実行コマンド
 " ----------------------------------------

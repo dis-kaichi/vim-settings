@@ -4,6 +4,10 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'melrief/vim-frege-syntax'
+call neobundle#end()
+
 " 実行
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
