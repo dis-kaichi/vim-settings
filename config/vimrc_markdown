@@ -1,28 +1,28 @@
 " ----------------------------------------
 " 共通設定読み込み
 " ----------------------------------------
+let language = 'markdown'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-""" Markdown
-" http://rcmdnk.github.io/blog/2014/10/30/computer-vim-markdown/
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'joker1007/vim-markdown-quote-syntax'
-NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'iwataka/vim-markdown-ex'
-"NeoBundle 'kannokanno/previm'
-NeoBundle 'kazuph/previm', 'feature/add-plantuml-plugin'
-NeoBundle 'tyru/open-browser.vim'
-call neobundle#end()
-
 " ----------------------------------------
 "  設定関連
 " ----------------------------------------
-"  vim2hsのラムダを止める
-let g:haskell_conceal = 0
+" Insertがクッソ遅い件の対応
+" http://gozuk16.hatenablog.com/entry/2017/12/27/232441
+set synmaxcol=200
+set lazyredraw
+set ttyfast
+set re=1
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_liquid=1
+let g:vim_markdown_math=0
+let g:vim_markdown_frontmatter=1
+let g:vim_markdown_toml_frontmatter=1
+let g:vim_markdown_json_frontmatter=0
+set nofoldenable
 
 " ----------------------------------------
 " 実行関数
@@ -31,7 +31,7 @@ nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]p :PrevimOpen <CR>
 map cc :CheckboxToggle<CR>
-vnoremap <C-f> :Alignta <Bar><CR>
+vnoremap <C-l> :Alignta <Bar><CR>
 
 
 " filetype

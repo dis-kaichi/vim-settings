@@ -29,6 +29,11 @@ sh -c $MYBASE/drive-guake.sh
 # ----------------------------------------
 # ディスプレイ設定(外部ファイル)
 # ----------------------------------------
-sh -c $MYBASE/disp-clear.sh
-sleep 3
-sh -c $MYBASE/disp-v.sh
+#sh -c $MYBASE/disp-clear.sh
+#sleep 3
+#sh -c $MYBASE/disp-v.sh
+
+# ----------------------------------------
+# Terminal起動
+# ----------------------------------------
+lxterminal &

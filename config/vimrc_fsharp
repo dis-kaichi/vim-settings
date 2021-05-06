@@ -1,14 +1,9 @@
 """ 共通設定読み込み
+let language = 'fsharp'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-" F#
-NeoBundle 'kongo2002/fsharp-vim'
-NeoBundle 'thinca/vim-quickrun'
-call neobundle#end()
 
 " 実行
 nnoremap [Exec] <Nop>

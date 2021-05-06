@@ -1,14 +1,9 @@
 """ 共通設定読み込み
+let language = 'org'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundle 'jceb/vim-orgmode'
-"NeoBundle 'akstrfn/vim-orgmode'
-NeoBundle 'tpope/vim-speeddating'
-call neobundle#end()
 
 let g:org_agenda_files=['~/workspace/org/todo.org', '~/workspace/org/list.org', '~/workspace/org/work.org']
 

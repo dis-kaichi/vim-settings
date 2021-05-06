@@ -1,12 +1,9 @@
 """ 共通設定読み込み
+let language = 'cpp'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundle 'rhysd/vim-clang-format'
-call neobundle#end()
 
 " 実行コマンド
 nnoremap [Exec] <Nop>

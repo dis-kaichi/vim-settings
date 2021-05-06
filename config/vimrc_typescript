@@ -1,17 +1,9 @@
 """ 共通設定読み込み
+let language = 'typescript'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-""" typescript
-NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'jason0x43/vim-js-indent'
-""" Matchit
-" typescript関連のライブラリで必要なようである
-NeoBundle 'tmhedberg/matchit'
 
 call neobundle#end()
 

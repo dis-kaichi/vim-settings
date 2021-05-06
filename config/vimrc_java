@@ -1,14 +1,11 @@
 " ----------------------------------------
 " 共通設定読み込み
 " ----------------------------------------
+let language = 'java'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-"" ここにプラグイン追加
-call neobundle#end()
 
 " ----------------------------------------
 " 実行コマンド
@@ -17,6 +14,7 @@ nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]c :!javac %<CR>
 map <silent> [Exec]p :!java %:r<CR>
+map <silent> [Exec]a :!java -ea %:r<CR>
 
 " ----------------------------------------
 " その他設定

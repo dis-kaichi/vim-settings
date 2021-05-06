@@ -1,4 +1,5 @@
 """ 共通設定読み込み
+let language = 'python'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
@@ -8,10 +9,6 @@ endif
 "  一部pythonと関係ない設定があるので、
 "  そのうち分離する
 " ----------------------------------------
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'tell-k/vim-autopep8'
-call neobundle#end()
 
 " Python実行
 nnoremap [Exec] <Nop>

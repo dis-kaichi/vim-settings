@@ -7,6 +7,8 @@ import os
 def _create_parser():  # Parserの作成
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', help='Config file.(.vimrc)')
+    parser.add_argument('-d', '--debug', action='store_true', help='Debug') # Flag
+    parser.add_argument('-s', '--script', help='Script Style')
     parser.add_argument('files', nargs='*', default=[], help='Files to open.')
     # Option追加
     for dic in _create_options():
@@ -25,7 +27,7 @@ def _create_options():
         dict(
             short='hatena', type='hatenablog', action='store_true',
             help="HatenaBlog Mode", specify=False),
-	dict(
+        dict(
             short='tidal', type='tidal', action='store_true',
             help="Tidal Mode", specify=False),
     ]
@@ -62,6 +64,8 @@ def _generate_config_fname(_type):
         return "vimrc_fsharp"
     elif _type == "org":
         return "vimrc_org"
+    elif _type == "java":
+        return "vimrc_java"
     # 不明な場合はpythonのやつ
     print "(WARN) Unknown file extension"
     print "(MSG) Use python config."
@@ -108,4 +112,9 @@ if __name__ == '__main__':
         config = args.config
 
     # 起動
-    os.system('vim -u %s %s' % (config, files))
+    if args.script is not None:
+        os.system('vim -u %s -s %s %s' % (config, args.script, files))
+    elif args.debug:
+        os.system('vim -u %s %s --startuptime pvim-debug.log' % (config, files))
+    else:
+        os.system('vim -u %s %s' % (config, files))

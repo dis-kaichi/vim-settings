@@ -4,3 +4,7 @@ keysym Control_L = Caps_Lock
 keysym Caps_Lock = Control_L
 add Lock = Caps_Lock
 add Control = Control_L
+keycode 22 = BackSpace backslash BackSpace backslash
+keycode 49 = underscore
+keycode 21 = asciicircum asciitilde
+keycode 19 = 0 bar 0 bar

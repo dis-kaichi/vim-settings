@@ -1,4 +1,5 @@
 """ 共通設定読み込み
+let language = 'hylang'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc

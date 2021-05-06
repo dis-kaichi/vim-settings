@@ -1,16 +1,9 @@
 """ 共通設定読み込み
+let language = 'haskell'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundle 'dag/vim2hs'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'pbrisbin/vim-syntax-shakespeare'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'eagletmt/unite-haddock'
-call neobundle#end()
 
 " Haskell 実行
 "" main を実行する
