@@ -66,6 +66,8 @@ def _generate_config_fname(_type):
         return "vimrc_org"
     elif _type == "java":
         return "vimrc_java"
+    elif _type == "dart":
+        return "vimrc_dart"
     # 不明な場合はpythonのやつ
     print "(WARN) Unknown file extension"
     print "(MSG) Use python config."

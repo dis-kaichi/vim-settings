@@ -58,6 +58,9 @@ endif
 "  以下独自設定
 " ----------------------------------------
 " [参考] http://lambdalisue.hatenablog.com/entry/2013/06/23/071344
+"
+" 括弧の飛ぶ機能を強化
+source /usr/share/vim/vim81/macros/matchit.vim
 
 " 入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <Esc>
@@ -347,6 +350,7 @@ elseif language == 'clojure'
 elseif language == 'coq'
   NeoBundle 'eagletmt/coqtop-vim'
 elseif language == 'cpp'
+  " sudo apt-get install clang-format が必要
   NeoBundle 'rhysd/vim-clang-format'
 elseif language == 'frege'
   NeoBundle 'melrief/vim-frege-syntax'
@@ -397,6 +401,10 @@ elseif language == 'typescript'
   """ Matchit
   " typescript関連のライブラリで必要なようである
   NeoBundle 'tmhedberg/matchit'
+elseif language == 'dart'
+  NeoBundle 'rhysd/vim-clang-format'
+  NeoBundle 'dart-lang/dart-vim-plugin'
+  NeoBundle 'thosakwe/vim-flutter'
 endif
 
 call neobundle#end()
