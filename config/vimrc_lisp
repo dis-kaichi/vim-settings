@@ -11,7 +11,7 @@ endif
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]p :!ros -l %<CR>
-
+map <silent> [Exec]t :!oj t -c 'ros %' -d ./tests/<CR>
 
 " 拡張子抜き(%:r)
 "map <silent> [Exec]jj :!java %:r<CR>
