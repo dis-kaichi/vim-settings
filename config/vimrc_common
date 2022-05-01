@@ -138,9 +138,11 @@ set backspace=indent,eol,start
 " クリップボードをデフォルトのレジスタとして指定。後にYankRingを使うので
 " 'unnamedplus'が存在しているかどうかで設定を分ける必要がある
 if has('unnamedplus')
-    set clipboard& clipboard+=unnamedplus,unnamed 
+    "set clipboard& clipboard+=unnamedplus,unnamed 
+    set clipboard& clipboard^=unnamedplus,unnamed 
 else
-    set clipboard& clipboard+=unnamed
+    "set clipboard& clipboard+=unnamed
+    set clipboard& clipboard^=unnamed
 endif
 
 """ 表示関連
@@ -225,6 +227,9 @@ map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n :tabnext<CR>
 " tp 前のタブ
 map <silent> [Tag]p :tabprevious<CR>
+
+" 現在のWindow以外を閉じる
+map <silent> [Tag]0 :only<CR>
 
 " ----------------------------------------
 " vim-operator-surround key bindings
@@ -336,6 +341,7 @@ if language == 'python'
   NeoBundle 'tell-k/vim-autopep8'
 elseif language ==  'lisp'
   " lisp with roswell
+  NeoBundle 'kovisoft/slimv'
   NeoBundle 'kien/rainbow_parentheses.vim'
 elseif language == 'hylang'
   NeoBundle 'kien/rainbow_parentheses.vim'
@@ -352,6 +358,8 @@ elseif language == 'coq'
 elseif language == 'cpp'
   " sudo apt-get install clang-format が必要
   NeoBundle 'rhysd/vim-clang-format'
+  NeoBundle 'thinca/vim-quickrun'
+  NeoBundle 'Shougo/vimproc.vim'
 elseif language == 'frege'
   NeoBundle 'melrief/vim-frege-syntax'
 elseif language == 'fsharp'
@@ -359,10 +367,11 @@ elseif language == 'fsharp'
   NeoBundle 'thinca/vim-quickrun'
 elseif language == 'haskell'
   NeoBundle 'dag/vim2hs'
-  NeoBundle 'eagletmt/ghcmod-vim'
+  "NeoBundle 'eagletmt/ghcmod-vim'
   NeoBundle 'pbrisbin/vim-syntax-shakespeare'
   NeoBundle 'eagletmt/neco-ghc'
   NeoBundle 'eagletmt/unite-haddock'
+  NeoBundle 'prabirshrestha/vim-lsp'
 elseif language == 'java'
 elseif language == 'javascript'
   """ HTML
@@ -405,6 +414,8 @@ elseif language == 'dart'
   NeoBundle 'rhysd/vim-clang-format'
   NeoBundle 'dart-lang/dart-vim-plugin'
   NeoBundle 'thosakwe/vim-flutter'
+elseif language == 'todo'
+  NeoBundle 'freitass/todo.txt-vim'
 endif
 
 call neobundle#end()
@@ -438,6 +449,10 @@ function! IPA2kana()
   let line = substitute(line, 'o', 'オ', 'g')
   call setline('.', printf("%s", line))
 endfunction
+
+
+inoremap <C-b>t <C-R>=strftime("%Y-%m-%d")<CR>
+inoremap <C-b>s <C-R>=strftime("%Y/%m/%d")<CR>
 
 " ----------------------------------------
 " End OrigMethod
