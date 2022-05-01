@@ -24,11 +24,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.version == "3":
-        first_bin = "python3.5"
+        first_bin = "python3.8"
         second_bin = "python2.7"
     else:
         first_bin = "python2.7"
-        second_bin = "python3.5"
+        second_bin = "python3.8"
     exec_cmds = ["sudo update-alternatives --install /usr/bin/python python /usr/bin/{0} 1".format(first_bin),
                  "sudo update-alternatives --install /usr/bin/python python /usr/bin/{0} 2".format(second_bin)]
     # 起動
