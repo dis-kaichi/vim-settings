@@ -5,6 +5,8 @@ if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
+" Clojure Lisp!
+
 " ----------------------------------------
 " 実行関数
 " ----------------------------------------
