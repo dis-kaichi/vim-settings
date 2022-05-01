@@ -68,6 +68,8 @@ def _generate_config_fname(_type):
         return "vimrc_java"
     elif _type == "dart":
         return "vimrc_dart"
+    elif _type == "todo":
+        return "vimrc_todo"
     # 不明な場合はpythonのやつ
     print "(WARN) Unknown file extension"
     print "(MSG) Use python config."
@@ -99,8 +101,12 @@ if __name__ == '__main__':
 
     if args.config is None:
         if args.files:
-            # 先頭ファイルの拡張子より利用するConfigファイルを判定する
-            _type = _extract_extension(args.files[0])
+            # 例外(todo.txt)
+            if args.files[0] == "todo.txt":
+                _type = "todo"
+            else:
+                # 先頭ファイルの拡張子より利用するConfigファイルを判定する
+                _type = _extract_extension(args.files[0])
         elif args.hatenablog:
             _type = "hatena"
         elif args.tidal:
