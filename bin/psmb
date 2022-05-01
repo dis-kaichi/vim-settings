@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# https://gist.github.com/a-yasui/7940da69a17ce385a43a4cd0a1d26846
+# psをMB単位で表示する
+
+option="--sort rss"
+if [ "$1" != "" ]; then
+  option=$1
+fi
+
+ps uax $option | awk 'BEGIN{FS=" ";OFS="\t";}{print $1,$2,$3,$4,$5,$6/1024 " MB",$7,$8,$9,$10,$11;}'
+

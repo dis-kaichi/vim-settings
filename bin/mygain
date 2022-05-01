@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# https://denspe.blog.fc2.com/blog-entry-62.html
+diff=$1
+file_name=$2
+if [ -n "$diff" ] || [ -n "$file_name" ]; then
+  mp3gain -r -c -p -d $diff $file_name
+else
+  echo "Delta dB or File Name is empty."
+fi

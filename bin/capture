@@ -1,0 +1,4 @@
+#!/bin/bash
+## -c : clipboard
+## -a : area指定
+gnome-screenshot -c -a

@@ -1,0 +1,8 @@
+[
+    {
+        "description": "Byobu",
+        "cmd": [
+            "byobu-screen"
+        ]
+    }
+]

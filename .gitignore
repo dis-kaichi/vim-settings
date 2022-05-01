@@ -1,0 +1,4 @@
+bin/dust/*
+*.el~
+*.log
+*.swp
