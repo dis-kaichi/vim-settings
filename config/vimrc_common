@@ -138,11 +138,11 @@ set backspace=indent,eol,start
 " クリップボードをデフォルトのレジスタとして指定。後にYankRingを使うので
 " 'unnamedplus'が存在しているかどうかで設定を分ける必要がある
 if has('unnamedplus')
-    "set clipboard& clipboard+=unnamedplus,unnamed 
     set clipboard& clipboard^=unnamedplus,unnamed 
+    set clipboard& clipboard+=unnamedplus,unnamed 
 else
-    "set clipboard& clipboard+=unnamed
     set clipboard& clipboard^=unnamed
+    set clipboard& clipboard+=unnamed
 endif
 
 """ 表示関連
@@ -305,6 +305,8 @@ NeoBundle 'Shougo/vimproc.vim'
 "" TODO ココらへんにプラグインを追加
 """ テーブル整形用
 NeoBundle 'h1mesuke/vim-alignta'
+""" テーブル作成用
+NeoBundle 'mattn/vim-maketable'
 
 """ W3M
 "NeoBundle 'yuratomo/w3m.vim'
@@ -329,6 +331,9 @@ NeoBundle 'rtakasuke/yanktmp.vim'
 """ Comment Out
 "NeoBundle 'sakuraiyuta/commentout.vim'
 NeoBundle 'tomtom/tcomment_vim'
+" 静的解析ツール
+" 必要に応じて各種ツールを別途DL : https://news.mynavi.jp/techplus/article/techp5012/
+NeoBundle 'dense-analysis/ale'
 
 """ C#
 "NeoBundle 'OrangeT/vim-csharp'
@@ -343,6 +348,8 @@ elseif language ==  'lisp'
   " lisp with roswell
   NeoBundle 'kovisoft/slimv'
   NeoBundle 'kien/rainbow_parentheses.vim'
+elseif language ==  'asm'
+  NeoBundle 'thinca/vim-quickrun'
 elseif language == 'hylang'
   NeoBundle 'kien/rainbow_parentheses.vim'
 elseif language ==  'clisp'
@@ -360,6 +367,7 @@ elseif language == 'cpp'
   NeoBundle 'rhysd/vim-clang-format'
   NeoBundle 'thinca/vim-quickrun'
   NeoBundle 'Shougo/vimproc.vim'
+  NeoBundle 'dbgx/lldb.nvim'
 elseif language == 'frege'
   NeoBundle 'melrief/vim-frege-syntax'
 elseif language == 'fsharp'
@@ -391,6 +399,7 @@ elseif language == 'markdown'
   NeoBundle 'joker1007/vim-markdown-quote-syntax'
   NeoBundle 'rcmdnk/vim-markdown'
   NeoBundle 'iwataka/vim-markdown-ex'
+  NeoBundle 'mattn/vim-maketable'
   "NeoBundle 'kannokanno/previm'
   NeoBundle 'kazuph/previm', 'feature/add-plantuml-plugin'
   NeoBundle 'tyru/open-browser.vim'
@@ -403,6 +412,7 @@ elseif language == 'ruby'
 elseif language == 'tidal'
   NeoBundle 'munshkr/vim-tidal'
 elseif language == 'typescript'
+  NeoBundle 'quickrun.vim'
   """ typescript
   NeoBundle 'Quramy/tsuquyomi'
   NeoBundle 'leafgarland/typescript-vim'

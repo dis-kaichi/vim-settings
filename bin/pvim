@@ -1,8 +1,7 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 # coding: utf-8
 import argparse
 import os
-
 
 def _create_parser():  # Parserの作成
     parser = argparse.ArgumentParser()
@@ -30,6 +29,9 @@ def _create_options():
         dict(
             short='tidal', type='tidal', action='store_true',
             help="Tidal Mode", specify=False),
+        dict(
+            short='n', type='neovim', action='store_true',
+            help="Neovim Mode", specify=False),
     ]
 
 def _generate_config_fname(_type):
@@ -70,9 +72,11 @@ def _generate_config_fname(_type):
         return "vimrc_dart"
     elif _type == "todo":
         return "vimrc_todo"
+    elif _type == "s":
+        return "vimrc_asm"
     # 不明な場合はpythonのやつ
-    print "(WARN) Unknown file extension"
-    print "(MSG) Use python config."
+    print("(WARN) Unknown file extension")
+    print("(MSG) Use python config.")
     return "vimrc_python"
 
 def _extract_extension(filename):
@@ -120,9 +124,10 @@ if __name__ == '__main__':
         config = args.config
 
     # 起動
+    editor = 'nvim' if args.neovim is not None else 'vim'
     if args.script is not None:
-        os.system('vim -u %s -s %s %s' % (config, args.script, files))
+        os.system('%s -u %s -s %s %s' % (editor, config, args.script, files))
     elif args.debug:
-        os.system('vim -u %s %s --startuptime pvim-debug.log' % (config, files))
+        os.system('%s -u %s %s --startuptime pvim-debug.log' % (editor, config, files))
     else:
-        os.system('vim -u %s %s' % (config, files))
+        os.system('%s -u %s %s' % (editor, config, files))

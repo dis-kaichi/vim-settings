@@ -5,9 +5,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+typedef unsigned long long ull;
 
 // rep macro
 #define reps(i, a, n) for (ll i = (a); i < (ll)(n); ++i)
+#define rreps(i, a, n) for (ll i = (a); i > (ll)(n); --i)
 #define rep(i, n) reps(i, 0, n)
 #define rrep(i, n) reps(i, 1, n + 1)
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
@@ -26,6 +28,7 @@ typedef long long ll;
 #define INF32 2147483647           // 2.147483647 x 10^{9}:32bit整数のinf
 #define INF64 9223372036854775807  // 9.22337203685477580 x 10^{18}:64bit整数のinf
 #define MOD 1000000007             //問題による
+#define PI 3.14159265359           // 円周率
 
 //略記
 #define F first
@@ -36,6 +39,25 @@ typedef long long ll;
   for (auto i = x.begin(); i != --x.end(); i++) cout << *i << " "; \
   cout << *--x.end() << endl;
 #define echo(x) cout << (x) << endl;
+
+#define dumpLine(x) {                               \
+  for (auto i = x.begin(); i != x.end(); ++i) {     \
+    if (i != x.begin())                             \
+      cout << " " << *i;                            \
+    else                                            \
+      cout << *i;                                   \
+  }                                                 \
+  cout << endl;                                     \
+}
+
+#define dumpMatrix(ms, row, col) \
+for (auto i = 0; i < row; i++) { \
+  for (auto j = 0; j < col; j++) { \
+    if (j != 0) cout << " "; \
+    cout << ms[i][j]; \
+  } \
+  cout << endl; \
+}
 
 // aをbで割る時の繰上げ,繰り下げ
 ll _ceil(ll a, ll b) { return (a + (b - 1)) / b; }

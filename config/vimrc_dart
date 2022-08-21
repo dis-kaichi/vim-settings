@@ -8,14 +8,11 @@ endif
 " 実行
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
-"" <C-l>はずれ対策, 但しコマンド実行部が消えるのでちょっと痛い
 map <silent> [Exec]p :!clear;dart %<CR>
 map <silent> [Exec]t :!clear;flutter test<CR>
-"map <silent> [Exec]f :DartFmt <CR>
 map <silent> [Exec]f :!dart format %<CR>
-"" PEP8コーディング規約チェック
-"map <silent> [Exec]8 :!pep8 %<CR>
-map <silent> = <Plug>(operator-clang-format)
+"map <silent> = <Plug>(operator-clang-format)
+map <silent> == :!dart format %<CR>
 
 " インデント
 autocmd FileType dart set autoindent
