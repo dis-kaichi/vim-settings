@@ -1,4 +1,9 @@
 #!/bin/bash
 ## -c : clipboard
 ## -a : area指定
-gnome-screenshot -c -a
+
+if [ "$1" = "s" ] || [ "$1" = "screen" ]; then
+  gnome-screenshot -a
+else
+  gnome-screenshot -c -a
+fi

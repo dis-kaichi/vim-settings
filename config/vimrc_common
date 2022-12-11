@@ -409,6 +409,8 @@ elseif language == 'org'
   NeoBundle 'tpope/vim-speeddating'
 elseif language == 'ruby'
   NeoBundle 'vim-ruby/vim-ruby'
+  NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'ruby-formatter/rufo-vim'
 elseif language == 'tidal'
   NeoBundle 'munshkr/vim-tidal'
 elseif language == 'typescript'
@@ -426,6 +428,9 @@ elseif language == 'dart'
   NeoBundle 'thosakwe/vim-flutter'
 elseif language == 'todo'
   NeoBundle 'freitass/todo.txt-vim'
+elseif language == 'lua'
+  NeoBundle 'tbastos/vim-lua'
+  NeoBundle 'andrejlevkovitch/vim-lua-format'
 endif
 
 call neobundle#end()

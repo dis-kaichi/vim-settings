@@ -38,6 +38,13 @@ map <silent> [Exec]p :execute('!stack exec ' . fnamemodify(expand("**/*.cabal"),
 map <silent> [Exec]r :!stack runghc %<CR>
 map <silent> [Exec]i :!stack ghci %<CR>
 
+" hindent は `stack install hindent` でインストールすること
+" https://github.com/chrisdone/hindent
+map <silent> = :%!hindent <CR>
+
+let g:ale_linters = {
+      \ 'haskell': ['stack-ghc'],
+      \ }
 
 " ----------------------------------------
 "  設定関連

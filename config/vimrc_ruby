@@ -14,10 +14,8 @@ nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]p :!ruby %<CR>
 
-set nocompatible
-filetype on
-filetype indent on
-filetype plugin on
+" ruby formatter
+let g:rufo_auto_formatting = 1
 
 " 拡張子抜き(%:r)
 "map <silent> [Exec]jj :!java %:r<CR>

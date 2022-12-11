@@ -74,6 +74,10 @@ def _generate_config_fname(_type):
         return "vimrc_todo"
     elif _type == "s":
         return "vimrc_asm"
+    elif _type == "rb":
+        return "vimrc_ruby"
+    elif _type == "lua":
+        return "vimrc_lua"
     # 不明な場合はpythonのやつ
     print("(WARN) Unknown file extension")
     print("(MSG) Use python config.")

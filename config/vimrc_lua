@@ -1,0 +1,15 @@
+""" 共通設定読み込み
+let language = 'lua'
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" 実行コマンド
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+
+map <silent> [Exec]p :!lua %<CR>
+map <silent> [Exec]l :!love .<CR>
+
+autocmd BufWrite *.lua call LuaFormat()
