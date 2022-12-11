@@ -466,8 +466,13 @@ function! IPA2kana()
 endfunction
 
 
+inoremap <C-b>T <C-R>=strftime("%Y%m%d")<CR>
 inoremap <C-b>t <C-R>=strftime("%Y-%m-%d")<CR>
 inoremap <C-b>s <C-R>=strftime("%Y/%m/%d")<CR>
+
+" jsonファイルの整形
+"" commandは大文字始まりにしないとエラーになるっぽい
+command! Jqf %!jq '.'
 
 " ----------------------------------------
 " End OrigMethod

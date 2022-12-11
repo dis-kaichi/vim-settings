@@ -1,0 +1,19 @@
+""" 共通設定読み込み
+let language = 'sql'
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" デフォルトのSQL用実行コマンドを排除する
+let g:omni_sql_no_default_maps = 1
+let g:ftplugin_sql_omni_key = '<C-M>'
+
+" 実行
+"nnoremap [Exec] <Nop>
+"nmap <C-t> [Exec]
+"map <silent> [Exec]e :!ghc -e main %<CR>
+
+" ----------------------------------------
+"  設定関連
+" ----------------------------------------

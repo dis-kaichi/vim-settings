@@ -44,7 +44,7 @@ def _generate_config_fname(_type):
         return "vimrc_haskell"
     elif _type == "py":
         return "vimrc_python"
-    elif _type == "ts":
+    elif _type in ["ts", "mts", "tsx"]:
         return "vimrc_typescript"
     elif _type == "fr":
         return "vimrc_frege"
@@ -78,6 +78,8 @@ def _generate_config_fname(_type):
         return "vimrc_ruby"
     elif _type == "lua":
         return "vimrc_lua"
+    elif _type == "sql":
+        return "vimrc_sql"
     # 不明な場合はpythonのやつ
     print("(WARN) Unknown file extension")
     print("(MSG) Use python config.")
@@ -132,6 +134,6 @@ if __name__ == '__main__':
     if args.script is not None:
         os.system('%s -u %s -s %s %s' % (editor, config, args.script, files))
     elif args.debug:
-        os.system('%s -u %s %s --startuptime pvim-debug.log' % (editor, config, files))
+        os.system('%s -u %s %s --startuptime pvim-debug.log -V9pvim-verbose.log ' % (editor, config, files))
     else:
         os.system('%s -u %s %s' % (editor, config, files))
