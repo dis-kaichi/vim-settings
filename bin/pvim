@@ -80,6 +80,8 @@ def _generate_config_fname(_type):
         return "vimrc_lua"
     elif _type == "sql":
         return "vimrc_sql"
+    elif _type == "sh":
+        return "vimrc_bash"
     # 不明な場合はpythonのやつ
     print("(WARN) Unknown file extension")
     print("(MSG) Use python config.")
