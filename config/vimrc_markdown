@@ -29,7 +29,10 @@ set nofoldenable
 " ----------------------------------------
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
+"" markdown preview on web browser
 map <silent> [Exec]p :PrevimOpen <CR>
+"" marp preview
+map <silent> [Exec]m :!marp % -p > /dev/null 2>&1 &<CR>
 map cc :CheckboxToggle<CR>
 vnoremap <C-l> :Alignta <Bar><CR>
 
