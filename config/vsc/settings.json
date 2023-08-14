@@ -1,0 +1,97 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "explorer.confirmDelete": false,
+  "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["t", "i"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": [",", "g"],
+      "commands": ["workbench.view.search"]
+    },
+    {
+      "before": [",", "e"],
+      "commands": ["workbench.action.quickOpen"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>", "<Esc>"],
+      "commands": [":nohlsearch"]
+    },
+    {
+      "before": ["s", "*"],
+      "after": ["y", "i", "w", ":", "%", "s", "/", "<C-r>", "\"", "/"]
+    },
+    {
+      "before": ["=", "="],
+      "after": ["=", "g", "g", "<C-o>", "=", "G", "z", "z"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["v"],
+      "after": ["$", "h"]
+    }
+  ],
+  "vim.hlsearch": true,
+  "vim.debug.loggingLevelForConsole": "debug",
+  "security.workspace.trust.untrustedFiles": "open",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.enablePreview": false,
+  "editor.minimap.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "react-native-tools.showUserTips": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "haskell.serverExecutablePath": "~/.local/bin/haskell-language-server",
+  "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "misogi.ruby-rubocop"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--ignore=E111, E114, E402, E501"],
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": ["--ignore=E114, E402, E501"],
+  "python.formatting.autopep8Path": "autopep8",
+  "explorer.confirmDragAndDrop": false,
+  "editor.formatOnSave": true, // ファイル保存時の自動フォーマット有効
+  "editor.formatOnPaste": true, // ペーストした文字の自動フォーマット有効
+  "editor.formatOnType": true, // 文字入力行の自動フォーマット有効
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // デフォルトフォーマッターをPrettierに指定
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // ファイル保存時に ESLint でフォーマット
+  },
+  "debug.onTaskErrors": "abort",
+  "workbench.editor.untitled.hint": "hidden"
+}
