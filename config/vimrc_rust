@@ -1,0 +1,27 @@
+""" 共通設定読み込み
+let language = 'rust'
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" ----------------------------------------
+"  実行関数
+" ----------------------------------------
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+map <silent> [Exec]r :!cargo run<CR>
+map <silent> [Exec]c :!rustc %<CR>
+map <silent> [Exec]p :!./%:r<CR>
+
+" 'rustup component add rustfmt'で予めインストールしておく必要あり
+map <silent> [Exec]f :!rustfmt %<CR>
+
+" 保存時に自動でrustfmt
+let g:rustfmt_autosave = 1
+
+" ----------------------------------------
+" filetypeの設定
+" ----------------------------------------
+au BufRead,BufNewFile *.{rs} set filetype=rust
+

@@ -60,7 +60,7 @@ endif
 " [参考] http://lambdalisue.hatenablog.com/entry/2013/06/23/071344
 "
 " 括弧の飛ぶ機能を強化
-source /usr/share/vim/vim81/macros/matchit.vim
+source /usr/share/vim/vim82/macros/matchit.vim
 
 " 入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <Esc>
@@ -353,7 +353,9 @@ if language == 'python'
   NeoBundle 'tell-k/vim-autopep8'
 elseif language ==  'lisp'
   " lisp with roswell
-  NeoBundle 'kovisoft/slimv'
+  " NeoBundle 'kovisoft/slimv'
+  NeoBundle 'fukamachi/vlime', { 'rtp': 'vim' }
+  " NeoBundle 'vlime/vlime', { 'rtp': 'vim' }
   NeoBundle 'kien/rainbow_parentheses.vim'
 elseif language ==  'asm'
   NeoBundle 'thinca/vim-quickrun'
@@ -438,6 +440,8 @@ elseif language == 'todo'
 elseif language == 'lua'
   NeoBundle 'tbastos/vim-lua'
   NeoBundle 'andrejlevkovitch/vim-lua-format'
+elseif language == 'prolog'
+  NeoBundle 'mxw/vim-prolog'
 endif
 
 call neobundle#end()

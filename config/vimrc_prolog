@@ -1,0 +1,50 @@
+""" 共通設定読み込み
+let language = 'python'
+let s:common_vimrc = expand('~/my/config/vimrc_common')
+if filereadable(s:common_vimrc)
+  execute 'source ' . s:common_vimrc
+endif
+
+" ----------------------------------------
+"  一部pythonと関係ない設定があるので、
+"  そのうち分離する
+" ----------------------------------------
+
+" Python実行
+nnoremap [Exec] <Nop>
+nmap <C-t> [Exec]
+map <silent> [Exec]p :!swipl %<CR>
+
+" インデント
+autocmd FileType python set autoindent
+autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+" #のインデントを整える
+autocmd FileType python :inoremap # X#
+
+" C-Lang
+"autocmd FileType c,cpp set autoindent smartindent tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" ----------------------------------------
+"  テンプレート
+" ----------------------------------------
+" "  不定先読みによる分岐処理
+" " noseテスト用
+" autocmd BufNewFile test_*.py 0r ~/my/templates/pynoseskelton.py
+" " 通常pythonモジュール
+" autocmd BufNewFile \(test_\)\@!*.py 0r ~/my/templates/pyskelton.py
+
+"" For Markdown
+"let g:vim_markdown_liquid=1
+"let g:vim_markdown_frontmattter=1
+"let g:vim_markdown_math=1
+
+" ----------------------------------------
+" filetypeの設定
+" ----------------------------------------
+au BufRead,BufNewFile *.{swi} set filetype=prolog
+"au BufRead,BufNewFile *.hy set filetype=clojure
+"" au BufRead,BufNewFile *.hy set filetype=lisp
+"au BufRead,BufNewFile *.wisp set filetype=clojure
+"au BufRead,BufNewFile *.clj set filetype=clojure
+

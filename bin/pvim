@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 import argparse
 import os
@@ -7,7 +7,9 @@ def _create_parser():  # Parserの作成
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', help='Config file.(.vimrc)')
     parser.add_argument('-d', '--debug', action='store_true', help='Debug') # Flag
+    parser.add_argument('-m', '--maintenance', action='store_true', help='Maintenance')
     parser.add_argument('-s', '--script', help='Script Style')
+    parser.add_argument('-t', '--todo', help='ToDo')
     parser.add_argument('files', nargs='*', default=[], help='Files to open.')
     # Option追加
     for dic in _create_options():
@@ -82,6 +84,10 @@ def _generate_config_fname(_type):
         return "vimrc_sql"
     elif _type == "sh":
         return "vimrc_bash"
+    elif _type == "swi":
+        return "vimrc_prolog"
+    elif _type == "rs":
+        return "vimrc_rust"
     # 不明な場合はpythonのやつ
     print("(WARN) Unknown file extension")
     print("(MSG) Use python config.")
@@ -137,5 +143,7 @@ if __name__ == '__main__':
         os.system('%s -u %s -s %s %s' % (editor, config, args.script, files))
     elif args.debug:
         os.system('%s -u %s %s --startuptime pvim-debug.log -V9pvim-verbose.log ' % (editor, config, files))
+    elif args.maintenance:
+        os.system('%s -u %s %s ' % (editor, config, os.path.abspath(__file__)))
     else:
         os.system('%s -u %s %s' % (editor, config, files))
