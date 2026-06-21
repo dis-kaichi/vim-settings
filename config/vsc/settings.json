@@ -93,5 +93,11 @@
     "source.fixAll.eslint": true // ファイル保存時に ESLint でフォーマット
   },
   "debug.onTaskErrors": "abort",
-  "workbench.editor.untitled.hint": "hidden"
+  "workbench.editor.untitled.hint": "hidden",
+  "[prolog]": {
+    "editor.defaultFormatter": "arthurwang.vsc-prolog",
+    "editor.formatOnSave": true
+  },
+  "prolog.executablePath": "/usr/bin/swipl",
+  "redhat.telemetry.enabled": false
 }

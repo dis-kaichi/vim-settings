@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ "$1" == "atcoder" ]; then
- oj login https://atcoder.jp/
-else
-  echo invalid argument: $1
-fi

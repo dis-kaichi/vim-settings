@@ -60,7 +60,7 @@ endif
 " [参考] http://lambdalisue.hatenablog.com/entry/2013/06/23/071344
 "
 " 括弧の飛ぶ機能を強化
-source /usr/share/vim/vim82/macros/matchit.vim
+" source /usr/share/vim/vim82/macros/matchit.vim
 
 " 入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <Esc>

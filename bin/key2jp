@@ -1,4 +1,0 @@
-#!/bin/bash
-
-setxkbmap jp;
-xmodmap ~/.Xmodmaprc;

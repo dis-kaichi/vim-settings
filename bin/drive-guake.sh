@@ -9,6 +9,8 @@ xcompmgr -n &
 
 # Guake起動後に透過率設定
 # (*) byobu-screenを常時起動
-guake -e byobu-screen &
+#guake -e byobu-screen &
+# guakeのHooksに"byobu-screen"を移動
+guake &
 #sleep 1
 #transset-df --no-regex -n guake 0.85
