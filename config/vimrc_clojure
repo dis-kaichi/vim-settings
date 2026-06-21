@@ -11,7 +11,9 @@ endif
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 " map <silent> [Exec]p :!java -cp /opt/clojure-1.6.0/clojure-1.6.0.jar:$CLASSPATH %<CR>
-map <silent> [Exec]p :!lein run <CR>
+" map <silent> [Exec]p :!lein run <CR>
+map <silent> [Exec]p :!joker %<CR>
+map <silent> [Exec]f :!cljfmt fix %<CR>
 
 " W3M (+ Google)
 " map [Exec]w :W3m google 

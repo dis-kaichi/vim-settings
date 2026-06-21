@@ -23,6 +23,8 @@ let g:vim_markdown_frontmatter=1
 let g:vim_markdown_toml_frontmatter=1
 let g:vim_markdown_json_frontmatter=0
 set nofoldenable
+" 皇族のプラグインでインデント設定が上書きされないようにする
+autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " ----------------------------------------
 " 実行関数
@@ -43,3 +45,9 @@ au BufRead,BufNewFile *.markdown set filetype=markdown
 
 " テンプレート
 "autocmd BufNewFile *.hy 0r ~/my/templates/hyskelton.hy
+
+
+" ----------------------------------------
+" 独自関数
+" ----------------------------------------
+

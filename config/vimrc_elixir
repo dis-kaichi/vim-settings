@@ -1,16 +1,21 @@
 """ 共通設定読み込み
-let language = 'prolog'
+let language = 'elixir'
 let s:common_vimrc = expand('~/my/config/vimrc_common')
 if filereadable(s:common_vimrc)
   execute 'source ' . s:common_vimrc
 endif
 
-" Prolog実行
+" 実行コマンド
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
-map <silent> [Exec]p :!swipl %<CR>
+map <silent> [Exec]p :!elixir %<CR>
+map <silent> [Exec]f :!mix format %<CR>
+
+" 保存時に自動でrustfmt
+let g:rustfmt_autosave = 1
 
 " ----------------------------------------
 "  filetypeの設定
 " ----------------------------------------
-au BufRead,BufNewFile *.{swi} set filetype=prolog
+au BufRead,BufNewFile *.{ex,exs} set filetype=elixir
+

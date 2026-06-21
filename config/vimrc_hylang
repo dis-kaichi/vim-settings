@@ -11,6 +11,7 @@ endif
 nnoremap [Exec] <Nop>
 nmap <C-t> [Exec]
 map <silent> [Exec]p :!hy % <CR>
+map <silent> [Exec]e :!hy2py % <CR>
 
 " rainbow_parentheses.vimの括弧の色付けを有効化
 " let g:rbpt_loadcmd_toggle = 0
