@@ -1,0 +1,1 @@
+return {"mxw/vim-prolog"}

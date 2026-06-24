@@ -2,5 +2,9 @@ bin/dust/*
 *.el~
 *.log
 *.swp
+*_bk
 
 config/dust/*
+is_old/
+modules/
+

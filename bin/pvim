@@ -32,8 +32,8 @@ def _create_options():
             short='tidal', type='tidal', action='store_true',
             help="Tidal Mode", specify=False),
         dict(
-            short='n', type='neovim', action='store_true',
-            help="Neovim Mode", specify=False),
+            short='v', type='vim', action='store_true',
+            help="Vim Mode", specify=False),
     ]
 
 def _generate_config_fname(_type):
@@ -138,12 +138,17 @@ if __name__ == '__main__':
         config = args.config
 
     # 起動
-    editor = 'nvim' if args.neovim is not None else 'vim'
-    if args.script is not None:
-        os.system('%s -u %s -s %s %s' % (editor, config, args.script, files))
-    elif args.debug:
-        os.system('%s -u %s %s --startuptime pvim-debug.log -V9pvim-verbose.log ' % (editor, config, files))
-    elif args.maintenance:
-        os.system('%s -u %s %s ' % (editor, config, os.path.abspath(__file__)))
+    # デフォルトをnvimに変更
+    editor = 'nvim' if not args.vim else 'vim'
+    if editor == 'nvim':
+        # nvim側の機能でconfig管理をしているのでファイルの指定は不要
+        os.system('%s %s' % (editor, files))
     else:
-        os.system('%s -u %s %s' % (editor, config, files))
+        if args.script is not None:
+            os.system('%s -u %s -s %s %s' % (editor, config, args.script, files))
+        elif args.debug:
+            os.system('%s -u %s %s --startuptime pvim-debug.log -V9pvim-verbose.log ' % (editor, config, files))
+        elif args.maintenance:
+            os.system('%s -u %s %s ' % (editor, config, os.path.abspath(__file__)))
+        else:
+            os.system('%s -u %s %s' % (editor, config, files))
