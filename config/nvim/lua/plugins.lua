@@ -39,7 +39,6 @@ load_plugins("plugins.prolog", "prolog")
 
 vim.list_extend(spec, {
     {"tomtom/tcomment_vim"}, -- コメント
-    -- {"vim-operator-user"}, -- surround
     -- 静的解析ツール
     -- 必要に応じて各種ツールを別途DL : https://news.mynavi.jp/techplus/article/techp5012/
     {"dense-analysis/ale"}, --
@@ -50,9 +49,6 @@ vim.list_extend(spec, {
     -- ===================
     {'rtakasuke/yanktmp.vim'}, {"nvim-lua/plenary.nvim", lazy = true},
     {'folke/lazy.nvim'}, --
-    -- ===================
-    -- vim yank結果共有
-    -- ===================
     {
         "folke/tokyonight.nvim",
         lazy = false,
