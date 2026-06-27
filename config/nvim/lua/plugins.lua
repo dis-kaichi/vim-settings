@@ -54,7 +54,51 @@ vim.list_extend(spec, {
         lazy = false,
         priority = 1000,
         config = function()
-            require("tokyonight").setup({transparent = true})
+            require("tokyonight").setup({
+                transparent = true,
+
+                styles = {sidebars = "transparent", floats = "transparent"},
+
+                on_colors = function(c)
+                    -- 全体的に明るい色へ調整
+                    c.bg_dark = "#202020"
+                    c.bg = "#262626"
+                    c.bg_highlight = "#333333"
+
+                    -- コメント
+                    -- c.comment = "#a0a0a0"
+                    c.comment = "#FFFFFF"
+
+                    -- 全体の文字色を明るく
+                    c.fg = "#f5f5f5"
+                    -- キーワード等
+                    c.fg_dark = "#d8d8d8"
+                    -- 行番号
+                    c.fg_gutter = "#808080"
+                end,
+
+                on_highlights = function(hl, c)
+                    -- 透過維持
+                    hl.Normal = {fg = c.fg, bg = "NONE"}
+                    hl.NormalNC = {fg = c.fg, bg = "NONE"}
+                    hl.NormalFloat = {fg = c.fg, bg = "NONE"}
+
+                    hl.SignColumn = {bg = "NONE"}
+                    hl.LineNr = {fg = "#6e6e6e", bg = "NONE"}
+                    hl.CursorLineNr = {fg = "#d7af5f", bold = true}
+
+                    -- 選択範囲を少し見やすく
+                    hl.Visual = {bg = "#404050"}
+
+                    -- カーソル行
+                    hl.CursorLine = {bg = "#2a2a2a"}
+
+                    -- ポップアップ
+                    hl.Pmenu = {fg = c.fg, bg = "#303030"}
+
+                    hl.PmenuSel = {fg = "#ffffff", bg = "#505070"}
+                end
+            })
 
             vim.cmd.colorscheme("tokyonight")
         end
