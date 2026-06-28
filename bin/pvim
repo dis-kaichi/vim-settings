@@ -10,6 +10,7 @@ def _create_parser():  # Parserの作成
     parser.add_argument('-m', '--maintenance', action='store_true', help='Maintenance')
     parser.add_argument('-s', '--script', help='Script Style')
     parser.add_argument('-t', '--todo', help='ToDo')
+    parser.add_argument('-R', '--readonly', nargs='*', default=[], help='Read Only')
     parser.add_argument('files', nargs='*', default=[], help='Files to open.')
     # Option追加
     for dic in _create_options():
@@ -142,7 +143,10 @@ if __name__ == '__main__':
     editor = 'nvim' if not args.vim else 'vim'
     if editor == 'nvim':
         # nvim側の機能でconfig管理をしているのでファイルの指定は不要
-        os.system('%s %s' % (editor, files))
+        if args.readonly:
+            os.system('%s -R "%s"' % (editor, files))
+        else:
+            os.system('%s %s' % (editor, files))
     else:
         if args.script is not None:
             os.system('%s -u %s -s %s %s' % (editor, config, args.script, files))

@@ -1,4 +1,5 @@
 require("options")
 require("keymaps.common")
+require("config.tabline")
 require("plugins")
 require("templates.python")

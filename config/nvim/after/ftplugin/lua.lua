@@ -18,19 +18,14 @@ vim.opt_local.expandtab = true
 
 vim.opt_local.formatoptions:remove({"r", "o"})
 
+-- lua-format をインストールする必要があります。以下のURLを参照してください
+--   https://github.com/koihik/luaformatter
+-- luarocks を利用してインストールします
+--   luarocks install --server=https://luarocks.org/dev luaformatter
+local group = vim.api.nvim_create_augroup("LuaFormatOnSave", {clear = false})
 
-local group = vim.api.nvim_create_augroup(
-  "LuaFormatOnSave",
-  { clear = false }
-)
-
-vim.api.nvim_create_autocmd(
-  "BufWritePre",
-  {
+vim.api.nvim_create_autocmd("BufWritePre", {
     group = group,
     buffer = 0,
-    callback = function()
-      vim.fn.LuaFormat()
-    end,
-  }
-)
+    callback = function() vim.fn.LuaFormat() end
+})
